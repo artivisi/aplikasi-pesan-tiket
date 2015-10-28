@@ -14,5 +14,7 @@ create table seat_tersedia (
     id VARCHAR(36) PRIMARY KEY,
     id_kelas VARCHAR(36) NOT NULL,
     id_kereta VARCHAR(36) NOT NULL,
-    jumlah INT
+    jumlah INT NOT NULL,
+    FOREIGN KEY (id_kelas) REFERENCES kelas_seat(id),
+    FOREIGN KEY (id_kereta) REFERENCES kereta(id)
 ) Engine = InnoDB ;
