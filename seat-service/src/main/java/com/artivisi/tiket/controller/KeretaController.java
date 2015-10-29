@@ -2,7 +2,7 @@ package com.artivisi.tiket.controller;
 
 import com.artivisi.tiket.entity.Kereta;
 import com.artivisi.tiket.dao.KeretaDao;
-
+import com.artivisi.tiket.exception.DataTidakAdaException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,6 +40,12 @@ public class KeretaController {
     @RequestMapping(value="/kereta/{id}", method=RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void updateKereta(@PathVariable String id, @RequestBody @Valid Kereta k){
+
+        Kereta kx = dao.findOne(id);
+        if(kx == null){
+            throw new DataTidakAdaException("Kereta dengan id "+id+" tidak ada dalam database");
+        }
+
         k.setId(id);
         dao.save(k);
     }
