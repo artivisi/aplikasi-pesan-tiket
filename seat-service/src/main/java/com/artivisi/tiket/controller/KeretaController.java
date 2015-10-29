@@ -49,4 +49,24 @@ public class KeretaController {
         k.setId(id);
         dao.save(k);
     }
+
+    @RequestMapping(value="/kereta/{id}", method=RequestMethod.GET)
+    public Kereta keretaById(@PathVariable String id){
+
+        Kereta kx = dao.findOne(id);
+        if(kx == null){
+            throw new DataTidakAdaException("Kereta dengan id "+id+" tidak ada dalam database");
+        }
+        return kx;
+    }
+
+    @RequestMapping(value="/kereta/{id}", method=RequestMethod.DELETE)
+    public void deleteKeretaById(@PathVariable String id){
+
+        Kereta kx = dao.findOne(id);
+        if(kx == null){
+            throw new DataTidakAdaException("Kereta dengan id "+id+" tidak ada dalam database");
+        }
+        dao.delete(kx);
+    }
 }
