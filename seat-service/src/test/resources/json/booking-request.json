@@ -1,0 +1,8 @@
+{
+  "waktuBooking" : 1446103134,
+  "namaCustomer"  : "Endy",
+  "jumlah"        : 4,
+  "kereta"        : { "id":"aa" },
+  "kelas"         : { "id":"bisnis"},
+  "status"        : "BARU"
+}
