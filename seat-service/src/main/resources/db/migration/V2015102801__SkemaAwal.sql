@@ -39,3 +39,23 @@ create table audit_log (
     action VARCHAR(255),
     data VARCHAR(255)
 ) Engine=InnoDB;
+
+create table s_users(
+    id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    aktif BOOLEAN NOT NULL
+) Engine=InnoDB;
+
+create table s_permission(
+    id VARCHAR(36) PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL UNIQUE
+) Engine=InnoDB;
+
+create table s_user_permission(
+    id_user VARCHAR(36),
+    id_permission VARCHAR(36),
+    FOREIGN KEY (id_user) REFERENCES s_users(id), 
+    FOREIGN KEY (id_permission) REFERENCES s_permission(id)
+) Engine=InnoDB;
+
