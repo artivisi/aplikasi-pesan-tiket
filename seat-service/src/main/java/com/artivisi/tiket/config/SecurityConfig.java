@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/seat/**").hasRole("VIEW_SEAT")
             .antMatchers("/booking/**").hasRole("CREATE_BOOKING")
             .anyRequest().authenticated()
-            .and().formLogin()
+            .and().httpBasic()
             ;
     }
 }
