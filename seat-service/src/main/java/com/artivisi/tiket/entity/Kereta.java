@@ -9,9 +9,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="kereta")
+@XmlRootElement
 public class Kereta {
 
     @Id
