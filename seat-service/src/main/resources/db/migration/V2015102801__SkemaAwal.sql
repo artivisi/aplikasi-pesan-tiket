@@ -31,3 +31,11 @@ create table booking (
     FOREIGN KEY (id_kelas) REFERENCES kelas_seat(id),
     FOREIGN KEY (id_kereta) REFERENCES kereta(id)
 ) Engine=InnoDB;
+
+create table audit_log (
+    id VARCHAR(36) PRIMARY KEY,
+    waktu_kejadian DATETIME NOT NULL,
+    user VARCHAR(255),
+    action VARCHAR(255),
+    data VARCHAR(255)
+) Engine=InnoDB;
